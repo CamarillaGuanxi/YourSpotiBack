@@ -1,4 +1,6 @@
 import { AuthorizationCode } from 'simple-oauth2';
+import { config } from 'dotenv';
+config();
 export const spotifyOAuth = new AuthorizationCode({
     client: {
         id: process.env.SPOTIFY_CLIENT_ID,

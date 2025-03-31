@@ -1,6 +1,7 @@
 import { Router } from 'express';
-import { autentication } from '../controller/spotify.controller.js';
+import { autentication, callback } from '../controller/spotify.controller.js';
 const router = Router();
 router.get('/autentication', autentication);
+router.put('/callback', callback);
 
 export default router;
