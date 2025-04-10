@@ -1,9 +1,13 @@
+import { autentication } from './spotify.controller.js';
 export const checkCookies = async (req, res) => {
     const userLogged = req.cookies.user_id;
+    console.log('userLogged', userLogged);
+
     if (userLogged) {
-        res.redirect('/spotify/autenticate');
+        await autentication(req, res);
     } else {
-        res.redirect('/spotify/callback');
+
+        await autentication(req, res);
     }
 
 }
