@@ -1,31 +1,36 @@
 import { config } from 'dotenv';
 import express from 'express';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
 import spotifyRoutes from './routes/spotify.routes.js';
 import youtubeRoutes from './routes/youtube.routes.js';
-import { connect } from 'mongoose';
-import cookieParser from 'cookie-parser';
-import cookiesRoutes from './routes/cookies.routes.js';
-import axios from 'axios';
-import cors from 'cors';
+import authenticationRoutes from './routes/authentication.routes.js';
+import { setupSwagger } from './swagger.js';
+
 config();
 
-let app = express();
-const PORT = process.env.PORT || 5000;
+const app = express();
+const PORT = process.env.PORT;
 
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-    origin: 'http://localhost:5173',
+    origin: process.env.FRONT,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
     credentials: true,
 }));
 
+// Configuración de rutas
 app.use('/spotify', spotifyRoutes);
 app.use('/youtube', youtubeRoutes);
-app.use('/cookies', cookiesRoutes);
+app.use('/authentication', authenticationRoutes);
+
+// Configuración de Swagger
+setupSwagger(app);
+
 app.get('/ping', (req, res) => {
-    console.log('someone pinged here');
+    console.log('Ping received');
     res.send('Pong');
 });
 

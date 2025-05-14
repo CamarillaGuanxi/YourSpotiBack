@@ -7,13 +7,16 @@
     "axios": "^1.8.4",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.5",
+    "crypto": "^1.0.1",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.15.0",
     "mongoose": "^8.13.0",
     "simple-oauth2": "^5.1.0",
-    "swagger": "^0.0.1"
+    "swagger": "^0.0.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1"
   },
   "type": "module"
 }
