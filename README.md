@@ -55,7 +55,7 @@ yourspoti-backend/
 │   ├── auth.js
 │   ├── spotify.js
 │   └── youtube.js
-├── services/              # Lógica de negocio
+├── controller/              # Lógica de negocio
 ├── utils/                 # Utilidades como cifrado y helpers
 ├── .env
 ├── package.json
